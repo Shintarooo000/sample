@@ -14,7 +14,7 @@ class ProfileController extends Controller
         return redirect('admin/profile/create');
     }
     public function edit(){
-        return redirect('admin.profile.edit');
+        return view('admin.profile.edit');
     }
     public function update(){
         return redirect('admin/profile/edit');
