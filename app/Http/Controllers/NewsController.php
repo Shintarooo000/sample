@@ -3,21 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\HTML;
 
-use App\Profile;
+use App\News;
 
-class ProfileController extends Controller
+class NewsController extends Controller
 {
     public function index(Request $request) {
-        $posts = Profile::all()->sortBydesc('updated_at');
+        $posts = News::all()->sortBydesc('updated_at');
         
         if (count($posts) > 0) {
             $headline = $posts->shift();
         }else{
             $headline = null;
         }
-        return view('profile.index', ['headline' => $headline, 'posts' => $posts]);
+        return view('news.index', ['headline' => $headline, 'posts' => $posts]);
     }
 }
